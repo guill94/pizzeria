@@ -1,0 +1,51 @@
+﻿@using pizzeria.Data.ViewModels; 
+@model LoginVM;
+
+@{ 
+    ViewData["Title"] = "Connexion";
+}
+
+
+        <div class="row">
+    <div class="col-md-6 offset-3 mb-5">
+        <p>
+            <h2>Connexion à votre compte</h2>
+        </p>
+
+        @if(TempData["Error"] != null)
+            {
+                <div class="col-md-12 alert alert-danger">
+                    <span><b>Désolé!</b> - @TempData["Error"] </span>
+                </div>
+            }
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label"></label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+ 
+
+                    <div class="form-group">
+                        <input class="btn btn-outline-success float-right" type="submit" value="Se connecter" />
+                        <a class="btn btn-outline-secondary" asp-controller="Pizzas" asp-action="Index">Annuler</a>
+                    </div>
+
+                    <a asp-controller="Manager" asp-action="ResetPassword" class="float-right form-group mt-3">Mot de passe oublié?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

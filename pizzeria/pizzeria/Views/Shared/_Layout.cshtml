@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/pizzeria.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -20,7 +21,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-xl-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -29,6 +30,34 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-badge">Gérer</i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                            <i class="bi bi-list">Utilisateurs</i>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                            <i class="bi bi-list">Commandes</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+
+                    </ul>
+                    <form class="form-inline" asp-controller="Pizzas" asp-action="Filter" style="padding-right: 55px;">
+                        <input name="searchString" type="text" class="form-control" placeholder="Chercher une pizza..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
 
                     @if (!User.Identity.IsAuthenticated)
                     {
@@ -44,10 +73,11 @@
                     {
                         @*User Button*@
                         <div class="dropdown">
-                            <button class="btn btn-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown" aria-expended="false">
+                            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-badge">@userManager.GetUserName(User)</i>
                             </button>
-                            <ul class="dropdown-menu" aria-labelleby="profile-btn">
+                            <ul class="dropdown-menu">
+
                                 <li>
                                     <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                                         <i class="bi bi-list">Commandes</i>
@@ -62,8 +92,9 @@
                             </button>
                         </form>
                     }
-                    </ul>
+
                 </div>
+                
             </div>
         </nav>
     </header>
