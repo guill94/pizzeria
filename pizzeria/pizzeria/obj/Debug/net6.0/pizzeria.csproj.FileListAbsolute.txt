@@ -265,3 +265,6 @@ C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\runtimes
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.csproj.CopyComplete
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.MvcApplicationPartsAssemblyInfo.cs
