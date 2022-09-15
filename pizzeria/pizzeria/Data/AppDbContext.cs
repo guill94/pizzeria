@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using pizzeria.Models;
 
 namespace pizzeria.Data
 {
-    public partial class DbContext : DbContext
+    public partial class AppDbContext : IdentityDbContext<AppUser>
     {
-        public DbContext()
+        public AppDbContext()
         {
         }
 
-        public DbContext(DbContextOptions<DbContext> options)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
         }
@@ -54,7 +55,7 @@ namespace pizzeria.Data
 
                             j.ToTable("UsersAddresses");
 
-                            j.IndexerProperty<int>("IdAppUser").HasColumnName("Id_AppUser");
+                            j.IndexerProperty<string>("IdAppUser").HasMaxLength(250).IsUnicode(false).HasColumnName("Id_AppUser");
 
                             j.IndexerProperty<int>("IdAddress").HasColumnName("Id_Address");
                         });
@@ -152,6 +153,7 @@ namespace pizzeria.Data
                         });
             });
 
+            base.OnModelCreating(modelBuilder);
             OnModelCreatingPartial(modelBuilder);
         }
 

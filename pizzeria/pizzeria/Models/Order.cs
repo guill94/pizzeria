@@ -30,12 +30,14 @@ namespace pizzeria.Models
         [Column("Id_Address")]
         public int IdAddress { get; set; }
         [Column("Id_AppUser")]
-        public int IdAppUser { get; set; }
+        [StringLength(250)]
+        [Unicode(false)]
+        public string IdAppUser { get; set; } = null!;
 
         [ForeignKey("IdAddress")]
         [InverseProperty("Orders")]
         public virtual Address IdAddressNavigation { get; set; } = null!;
-        [ForeignKey("IdAppUser")]
+        [ForeignKey("Id")]
         [InverseProperty("Orders")]
         public virtual AppUser IdAppUserNavigation { get; set; } = null!;
         [ForeignKey("IdDeliveryCompany")]

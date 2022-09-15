@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace pizzeria.Models
 {
-    public partial class AppUser
+    public partial class AppUser : IdentityUser
     {
         public AppUser()
         {
@@ -14,9 +15,6 @@ namespace pizzeria.Models
             IdAddresses = new HashSet<Address>();
         }
 
-        [Key]
-        [Column("Id_AppUser")]
-        public int IdAppUser { get; set; }
         [StringLength(50)]
         [Unicode(false)]
         public string FirstName { get; set; } = null!;
