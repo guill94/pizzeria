@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elbe_\\Desktop\\pizzeria\\pizzeria\\pizzeria.csproj",
+      "projectUniqueName": "C:\\Users\\elbe_\\Desktop\\Temp\\pizzeria\\pizzeria\\pizzeria\\pizzeria.csproj",
       "projectName": "pizzeria",
-      "projectPath": "C:\\Users\\elbe_\\Desktop\\pizzeria\\pizzeria\\pizzeria.csproj",
+      "projectPath": "C:\\Users\\elbe_\\Desktop\\Temp\\pizzeria\\pizzeria\\pizzeria\\pizzeria.csproj",
       "packagesPath": "C:\\Users\\elbe_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elbe_\\Desktop\\pizzeria\\pizzeria\\obj\\",
+      "outputPath": "C:\\Users\\elbe_\\Desktop\\Temp\\pizzeria\\pizzeria\\pizzeria\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
