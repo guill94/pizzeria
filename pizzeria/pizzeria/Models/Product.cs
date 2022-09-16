@@ -44,5 +44,6 @@ namespace pizzeria.Models
         [ForeignKey("IdProduct")]
         [InverseProperty("IdProducts")]
         public virtual ICollection<Ingredient> IdIngredients { get; set; }
+
     }
 }
