@@ -1,13 +1,13 @@
-﻿@model pizzeria.Models.Category
+﻿@model pizzeria.Models.Ingredient
 
 @{
-    ViewData["Title"] = "Ajouter catégorie";
+    ViewData["Title"] = "Ajouter ingrédient";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Ajouter une catégorie</h1>
+            <h1>Ajouter un ingrédient</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
@@ -18,9 +18,9 @@
                         <img id="ProfilePicturePreview" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="CategoryName" class="control-label"></label>
-                        <input asp-for="CategoryName" class="form-control" />
-                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+                        <label asp-for="IngredientName" class="control-label"></label>
+                        <input asp-for="IngredientName" class="form-control" />
+                        <span asp-validation-for="IngredientName" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">

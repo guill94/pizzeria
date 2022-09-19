@@ -1,0 +1,35 @@
+﻿@model IEnumerable<pizzeria.Models.Ingredient>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table align-content-center">
+            <thead>
+                <tr>
+                    <th class="">Ingrédients</th>
+                    <th class="d-flex justify-content-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IngredientName)</td>
+                        <td class="align-middle d-flex justify-content-center">
+                            <a class="btn btn-outline-primary me-3" asp-action="Edit" asp-route-id="@item.IdIngredient"><i class="bi bi-pencil-square"></i>Modifier </a>
+                            <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.IdIngredient"><i class="bi bi-trash"></i>Supprimer </a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@await Html.PartialAsync("_CreateButton", "Ingredients")
+
