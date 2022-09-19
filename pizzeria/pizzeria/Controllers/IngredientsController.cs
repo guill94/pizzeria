@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using pizzeria.Data;
+using pizzeria.Data.Interfaces;
 using pizzeria.Models;
 
 namespace pizzeria.Controllers
@@ -13,16 +14,19 @@ namespace pizzeria.Controllers
     public class IngredientsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IIngredientsRepository _repo;
 
-        public IngredientsController(AppDbContext context)
+        public IngredientsController(AppDbContext context, IIngredientsRepository repo)
         {
             _context = context;
+            _repo = repo;
         }
 
         // GET: Ingredients
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Ingredients.ToListAsync());
+            IEnumerable<Ingredient> data = await _repo.GetAllIngredients();
+            return View(data);
         }
 
        
@@ -34,30 +38,27 @@ namespace pizzeria.Controllers
         }
 
         // POST: Ingredients/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdIngredient,IngredientName")] Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ingredient);
-                await _context.SaveChangesAsync();
+                await _repo.CreateIngredient(ingredient);
                 return RedirectToAction(nameof(Index));
             }
             return View(ingredient);
         }
 
-        // GET: Ingredients/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Ingredients/Edit/1
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null || _context.Ingredients == null)
             {
                 return NotFound();
             }
 
-            var ingredient = await _context.Ingredients.FindAsync(id);
+            Ingredient ingredient = await _repo.GetIngredientById(id);
             if (ingredient == null)
             {
                 return NotFound();
@@ -65,9 +66,7 @@ namespace pizzeria.Controllers
             return View(ingredient);
         }
 
-        // POST: Ingredients/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Ingredients/Edit/1
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdIngredient,IngredientName")] Ingredient ingredient)
