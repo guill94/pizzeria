@@ -33,7 +33,6 @@ C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsof
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Build.Locator.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -532,3 +531,6 @@ C:\Users\guill\Desktop\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\refint\pizzer
 C:\Users\guill\Desktop\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.pdb
 C:\Users\guill\Desktop\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.genruntimeconfig.cache
 C:\Users\guill\Desktop\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\ref\pizzeria.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Build.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Build.Framework.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
