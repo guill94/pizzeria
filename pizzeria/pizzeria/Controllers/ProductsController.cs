@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using pizzeria.Data;
+using pizzeria.Data.Interfaces;
+using pizzeria.Data.ViewModels;
 using pizzeria.Models;
 
 namespace pizzeria.Controllers
@@ -13,59 +15,63 @@ namespace pizzeria.Controllers
     public class ProductsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IProductsRepository _repo;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(AppDbContext context, IProductsRepository repo)
         {
             _context = context;
+            _repo = repo;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Products.Include(p => p.IdCategoryNavigation);
-            return View(await appDbContext.ToListAsync());
+            IEnumerable<Product> data = await _repo.GetAllProducts();
+            return View(data);
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null || _context.Products == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .Include(p => p.IdCategoryNavigation)
-                .FirstOrDefaultAsync(m => m.IdProduct == id);
-            if (product == null)
+            Product data = await _repo.GetProductById(id);
+            if (data == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(data);
         }
 
         // GET: Products/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory");
+            ICollection<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
+            ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName");
             return View();
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,ProductDescription,ProductPrice,ProductImageName,IdCategory")] Product product)
+        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,ProductDescription,ProductPrice,ProductImageFile,IdCategory, IdIngredients")] ProductVM product)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(product);
+            
+            //if (ModelState.IsValid)
+            //{
+               await _repo.CreateProduct(product);
+                //_context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
+            //}
+            ICollection<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
+            ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName");
+            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName");
             return View(product);
         }
 
@@ -87,8 +93,6 @@ namespace pizzeria.Controllers
         }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdProduct,ProductName,ProductDescription,ProductPrice,ProductImageName,IdCategory")] Product product)

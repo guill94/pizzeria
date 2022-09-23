@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
+using pizzeria.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace pizzeria.Models
+namespace pizzeria.Data.ViewModels
 {
-    [Index("ProductName", Name = "AK_Products", IsUnique = true)]
-    public partial class Product
+    public class ProductVM
     {
-        public Product()
-        {
-            CarItems = new HashSet<CarItem>();
-            OrderDetails = new HashSet<OrderDetail>();
-            IdIngredients = new HashSet<Ingredient>();
-        }
-
         [Key]
         [Column("Id_Product")]
         public int IdProduct { get; set; }
@@ -48,6 +40,5 @@ namespace pizzeria.Models
         [ForeignKey("IdProduct")]
         [InverseProperty("IdProducts")]
         public virtual ICollection<Ingredient> IdIngredients { get; set; }
-
     }
 }

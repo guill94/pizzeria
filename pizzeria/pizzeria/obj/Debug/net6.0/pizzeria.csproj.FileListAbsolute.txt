@@ -534,3 +534,4 @@ C:\Users\guill\Desktop\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\ref\pizzeria.
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Build.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
+C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\libman.json
