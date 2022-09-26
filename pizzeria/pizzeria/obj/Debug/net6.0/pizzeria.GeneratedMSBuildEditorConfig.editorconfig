@@ -8,105 +8,105 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = pizzeria
 build_property.RootNamespace = pizzeria
-build_property.ProjectDir = C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria\
+build_property.ProjectDir = C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\elbe_\Desktop\Temp\pizzeria\pizzeria\pizzeria
+build_property.MSBuildProjectDirectory = C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Account/Login.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Account/Register.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Account/RegisterCompleted.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Account/RegisterCompleted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckNvbXBsZXRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Categories/Create.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Categories/Delete.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Categories/Edit.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Categories/Index.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Home/Index.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Home/Privacy.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Ingredients/Create.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Ingredients/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Ingredients/Delete.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Ingredients/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Ingredients/Edit.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Ingredients/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Ingredients/Index.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Ingredients/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Products/Create.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Products/Delete.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Products/Details.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Products/Edit.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Products/Index.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Shared/Error.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Shared/_CreateButton.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Shared/_CreateButton.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DcmVhdGVCdXR0b24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/_ViewImports.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/_ViewStart.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elbe_/Desktop/Temp/pizzeria/pizzeria/pizzeria/Views/Shared/_Layout.cshtml]
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zw478h12q1

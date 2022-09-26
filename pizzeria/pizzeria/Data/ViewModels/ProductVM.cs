@@ -8,6 +8,12 @@ namespace pizzeria.Data.ViewModels
 {
     public class ProductVM
     {
+        public ProductVM()
+        {
+            IdIngredients = new List<int>();
+        }
+
+
         [Key]
         [Column("Id_Product")]
         public int IdProduct { get; set; }
@@ -39,6 +45,6 @@ namespace pizzeria.Data.ViewModels
 
         [ForeignKey("IdProduct")]
         [InverseProperty("IdProducts")]
-        public virtual ICollection<Ingredient> IdIngredients { get; set; }
+        public virtual List<int> IdIngredients { get; set; }
     }
 }

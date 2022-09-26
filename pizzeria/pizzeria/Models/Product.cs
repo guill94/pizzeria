@@ -13,7 +13,7 @@ namespace pizzeria.Models
         {
             CarItems = new HashSet<CarItem>();
             OrderDetails = new HashSet<OrderDetail>();
-            IdIngredients = new HashSet<Ingredient>();
+            IdIngredients = new List<Ingredient>();
         }
 
         [Key]
@@ -47,7 +47,7 @@ namespace pizzeria.Models
 
         [ForeignKey("IdProduct")]
         [InverseProperty("IdProducts")]
-        public virtual ICollection<Ingredient> IdIngredients { get; set; }
+        public virtual List<Ingredient> IdIngredients { get; set; }
 
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using pizzeria.Data.Interfaces;
 using pizzeria.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore;
 using pizzeria.Data.ViewModels;
 
 namespace pizzeria.Data
@@ -30,7 +28,10 @@ namespace pizzeria.Data
 
         public async Task<Product> GetProductById(int id)
         {
-            Product data = await _context.Products.Include(p => p.IdCategoryNavigation).FirstOrDefaultAsync(n => n.IdProduct == id);
+            Product data = await _context.Products
+                                .Include(i => i.IdIngredients)
+                                .Include(c => c.IdCategoryNavigation)
+                                .FirstOrDefaultAsync(n => n.IdProduct == id);
 
             return data;
         }
@@ -50,13 +51,21 @@ namespace pizzeria.Data
                 await product.ProductImageFile.CopyToAsync(fileStream);
             }
 
+
+            List<Ingredient> IngList = new List<Ingredient>();
+            foreach (int ingredientId in product.IdIngredients)
+            {
+                Ingredient ingredientBDD = await _context.Ingredients.FirstOrDefaultAsync(n => n.IdIngredient == ingredientId);  
+                IngList.Add(ingredientBDD);
+            }
             var newProduct = new Product()
             {
                 ProductName = product.ProductName,
                 ProductDescription = product.ProductDescription,
                 ProductPrice = product.ProductPrice,
                 ProductImageName = fileName,
-                IdIngredients = product.IdIngredients,
+                IdCategory = product.IdCategory,
+                IdIngredients = IngList,
 
             };
 
@@ -82,9 +91,14 @@ namespace pizzeria.Data
             throw new NotImplementedException();
         }
 
-        public Task DeleteProduct(int id)
+        public async Task DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            Product data = await _context.Products.FirstOrDefaultAsync(n => n.IdProduct == id);
+            if (data != null)
+            {
+                _context.Products.Remove(data);
+                await _context.SaveChangesAsync();
+            }
         }
 
         

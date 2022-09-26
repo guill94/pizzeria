@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -51,7 +48,7 @@ namespace pizzeria.Controllers
         public async Task<IActionResult> Create()
         {
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory");
-            ICollection<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
+            List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName");
             return View();
         }
@@ -69,26 +66,28 @@ namespace pizzeria.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             //}
-            ICollection<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
+            List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName");
             ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName");
             return View(product);
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null || _context.Products == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _repo.GetProductById(id);
             if (product == null)
             {
                 return NotFound();
             }
+            List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
+            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
             return View(product);
         }
 
@@ -122,31 +121,35 @@ namespace pizzeria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
+            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
             return View(product);
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
+            
             if (id == null || _context.Products == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .Include(p => p.IdCategoryNavigation)
-                .FirstOrDefaultAsync(m => m.IdProduct == id);
+            Product product = await _repo.GetProductById(id);
             if (product == null)
             {
                 return NotFound();
             }
+            List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
+            ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
+            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
 
             return View(product);
         }
 
         // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -154,13 +157,11 @@ namespace pizzeria.Controllers
             {
                 return Problem("Entity set 'AppDbContext.Products'  is null.");
             }
-            var product = await _context.Products.FindAsync(id);
+            Product product = await _repo.GetProductById(id);
             if (product != null)
             {
-                _context.Products.Remove(product);
+                _repo.DeleteProduct(id);
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

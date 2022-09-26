@@ -1,54 +1,65 @@
 ﻿@model pizzeria.Models.Product
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Mettre à jour produit";
 }
 
-<h1>Edit</h1>
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Mettre à jour un produit</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdProduct" />
-            <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
-                <input asp-for="ProductName" class="form-control" />
-                <span asp-validation-for="ProductName" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="ProductName" class="control-label"></label>
+                        <input asp-for="ProductName" class="form-control" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductDescription" class="control-label"></label>
+                        <textarea asp-for="ProductDescription" class="form-control"></textarea>
+                        <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductPrice" class="control-label"></label>
+                        <input asp-for="ProductPrice" class="form-control" />
+                        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductImageFile" class="control-label"></label>
+                        <input asp-for="ProductImageFile" accept="image/*" />
+                        <span asp-validation-for="ProductImageFile" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="IdCategory" class="control-label"></label>
+                        <select asp-for="IdCategory" class="form-control" asp-items="ViewBag.IdCategory"></select>
+                        <span asp-validation-for="IdCategory" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="IdIngredients" class="control-label"></label>
+                        <select asp-for="IdIngredients" class="form-control" asp-items="ViewBag.IngredientIds" multiple></select>
+                        <span asp-validation-for="IdIngredients" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.AntiForgeryToken()
+                        <input type="submit" value="Mettre à jour" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-danger text-white" asp-controller="Pizzas" asp-action="Delete" asp-route-id="@Model.IdProduct"><i class="bi bi-trash">Supprimer</i></a>
+                       <a class="btn btn-outline-secondary" asp-action="Index">Retour</a>
+                    </div>
+                </form>
+
+
             </div>
-            <div class="form-group">
-                <label asp-for="ProductDescription" class="control-label"></label>
-                <input asp-for="ProductDescription" class="form-control" />
-                <span asp-validation-for="ProductDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductPrice" class="control-label"></label>
-                <input asp-for="ProductPrice" class="form-control" />
-                <span asp-validation-for="ProductPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductImageName" class="control-label"></label>
-                <input asp-for="ProductImageName" class="form-control" />
-                <span asp-validation-for="ProductImageName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdCategory" class="control-label"></label>
-                <select asp-for="IdCategory" class="form-control" asp-items="ViewBag.IdCategory"></select>
-                <span asp-validation-for="IdCategory" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
