@@ -49,7 +49,7 @@ namespace pizzeria.Controllers
         {
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory");
             List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
-            ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName");
+            ViewData["IngredientIds"] = new MultiSelectList(ingredients, "IdIngredient", "IngredientName");
             return View();
         }
 
@@ -87,7 +87,7 @@ namespace pizzeria.Controllers
             }
             List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
-            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
+            ViewBag.IngredientIds = new MultiSelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients.Select(c => c.IngredientName).ToList());
             return View(product);
         }
 
@@ -123,7 +123,7 @@ namespace pizzeria.Controllers
             }
             List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
             ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
-            ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
+            ViewBag.IngredientIds = new MultiSelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
             return View(product);
         }
 
@@ -142,7 +142,7 @@ namespace pizzeria.Controllers
                 return NotFound();
             }
             List<Ingredient> ingredients = await _context.Ingredients.OrderBy(n => n.IngredientName).ToListAsync();
-            ViewData["IngredientIds"] = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
+            ViewData["IdCategory"] = new SelectList(_context.Categories, "IdCategory", "IdCategory", product.IdCategory);
             ViewBag.IngredientIds = new SelectList(ingredients, "IdIngredient", "IngredientName", product.IdIngredients);
 
             return View(product);

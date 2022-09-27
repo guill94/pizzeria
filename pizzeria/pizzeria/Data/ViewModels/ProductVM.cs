@@ -39,7 +39,7 @@ namespace pizzeria.Data.ViewModels
         [InverseProperty("Products")]
         public virtual Category IdCategoryNavigation { get; set; } = null!;
         [InverseProperty("IdProductNavigation")]
-        public virtual ICollection<CarItem> CarItems { get; set; }
+        public virtual ICollection<CartItem> CarItems { get; set; }
         [InverseProperty("IdProductNavigation")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

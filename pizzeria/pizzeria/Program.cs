@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using pizzeria.Data;
+using pizzeria.Data.Cart;
 using pizzeria.Data.Interfaces;
 using pizzeria.Models;
 
@@ -27,6 +28,9 @@ builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IIngredientsRepository, IngredientsRepository>();
 builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(c => ShoppingCart.GetCart(c));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,6 +45,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();

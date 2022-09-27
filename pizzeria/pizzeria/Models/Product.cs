@@ -11,7 +11,7 @@ namespace pizzeria.Models
     {
         public Product()
         {
-            CarItems = new HashSet<CarItem>();
+            CarItems = new HashSet<CartItem>();
             OrderDetails = new HashSet<OrderDetail>();
             IdIngredients = new List<Ingredient>();
         }
@@ -41,7 +41,7 @@ namespace pizzeria.Models
         [InverseProperty("Products")]
         public virtual Category IdCategoryNavigation { get; set; } = null!;
         [InverseProperty("IdProductNavigation")]
-        public virtual ICollection<CarItem> CarItems { get; set; }
+        public virtual ICollection<CartItem> CarItems { get; set; }
         [InverseProperty("IdProductNavigation")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

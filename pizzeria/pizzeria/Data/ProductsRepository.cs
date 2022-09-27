@@ -22,7 +22,6 @@ namespace pizzeria.Data
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
             IEnumerable<Product> data = await _context.Products.Include(p => p.IdCategoryNavigation).ToListAsync();
-
             return data;
         }
 

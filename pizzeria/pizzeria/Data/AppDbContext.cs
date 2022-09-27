@@ -20,7 +20,7 @@ namespace pizzeria.Data
 
         public virtual DbSet<Address> Addresses { get; set; } = null!;
         public virtual DbSet<AppUser> AppUsers { get; set; } = null!;
-        public virtual DbSet<CarItem> CarItems { get; set; } = null!;
+        public virtual DbSet<CartItem> CarItems { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<DeliveryCompany> DeliveryCompanies { get; set; } = null!;
         public virtual DbSet<DeliveryPrice> DeliveryPrices { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace pizzeria.Data
                         });
             });
 
-            modelBuilder.Entity<CarItem>(entity =>
+            modelBuilder.Entity<CartItem>(entity =>
             {
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.CarItems)

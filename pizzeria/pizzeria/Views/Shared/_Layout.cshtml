@@ -99,6 +99,11 @@
                         </form>
                     }
 
+                    @*Cart Button*@
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("CartSummary")
+                    </ul>
+
                 </div>
                 
             </div>

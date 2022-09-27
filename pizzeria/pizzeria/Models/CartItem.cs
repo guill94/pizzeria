@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace pizzeria.Models
 {
-    public partial class CarItem
+    public partial class CartItem
     {
         [Key]
         [Column("Id_CarItem")]
         public int IdCarItem { get; set; }
-        public int? Amount { get; set; }
+        public int Amount { get; set; }
         [StringLength(250)]
         [Unicode(false)]
-        public string? CartId { get; set; }
+        public string CartId { get; set; }
         [Column("Id_Product")]
         public int IdProduct { get; set; }
 
