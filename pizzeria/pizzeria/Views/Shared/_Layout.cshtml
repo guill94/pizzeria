@@ -29,6 +29,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index">
+                                <i class="bi bi-list">Produits</i>
+                            </a>
+                        </li>
 
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
@@ -38,20 +43,19 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" asp-controller="Products" asp-action="Index">
-                                            <i class="bi bi-list">Produits</i>
-
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                                             <i class="bi bi-list">Utilisateurs</i>
 
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                        <a class="dropdown-item" asp-controller="AdminOrders" asp-action="Orders">
                                             <i class="bi bi-list">Commandes</i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Ingredients" asp-action="Index">
+                                            <i class="bi bi-list">Ingrédients</i>
                                         </a>
                                     </li>
                                 </ul>
