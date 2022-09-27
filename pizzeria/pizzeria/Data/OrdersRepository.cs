@@ -27,7 +27,9 @@ namespace pizzeria.Data
             {
                 IdAppUser = userId,
                 OrderDate = System.DateTime.Now,
-                Paid = true
+                Paid = true,
+                IdAddress = 1,
+                IdStatus = 1
 
             };
             await _context.Orders.AddAsync(order);

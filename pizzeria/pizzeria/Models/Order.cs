@@ -37,7 +37,7 @@ namespace pizzeria.Models
         [ForeignKey("IdAddress")]
         [InverseProperty("Orders")]
         public virtual Address IdAddressNavigation { get; set; } = null!;
-        [ForeignKey("Id")]
+        [ForeignKey("IdAppUser")]
         [InverseProperty("Orders")]
         public virtual AppUser IdAppUserNavigation { get; set; } = null!;
         [ForeignKey("IdDeliveryCompany")]

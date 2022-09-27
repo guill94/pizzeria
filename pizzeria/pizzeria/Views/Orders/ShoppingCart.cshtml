@@ -1,0 +1,133 @@
+﻿@using pizzeria.Data.ViewModels;
+@model CartVM
+
+@{
+    ViewData["Title"] = "Panier";
+}
+
+
+    <div class="row">
+        <div class="col-md-8 offset-2">
+
+            <div class="text-center">
+                <h2>Votre panier</h2>
+            </div>
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Quantité</th>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Sous-total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.Cart.CartItems)
+                    {
+                        <tr>
+                            <td class="align-middle">@item.Amount</td>
+                            <td class="align-middle">@item.IdProductNavigation.ProductName</td>
+                        <td class="align-middle">@item.IdProductNavigation.ProductPrice.ToString("c")</td>
+                            <td class="align-middle">@((item.Amount*item.IdProductNavigation.ProductPrice).ToString("c"))</td>
+                            <td class="align-middle">
+                                <a class="text-danger" asp-controller="Orders" asp-action="RemoveItemFromCart" asp-route-id="@item.IdProductNavigation.IdProduct">
+                                    <i class="bi-cart-dash"></i>
+                                </a> |
+                                <a class="text-success" asp-controller="Orders" asp-action="AddItemToCart" asp-route-id="@item.IdProductNavigation.IdProduct">
+                                    <i class="bi-cart-plus"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Total :</b></td>
+                        <td>
+                            <p>@Model.CartTotal.ToString("c")</p>
+                            <p id="total">@Model.CartTotal.ToString()</p>
+                        </td>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+            <div class="text-right">
+                <div class="btn-group">
+                    <div id="load" class="show">Chargement...</div>
+                    <div id="paypal-btn"></div>
+                    <span style="padding:5px"></span>
+
+                    <a class="btn btn-outline-success" asp-controller="Products" asp-action="Index">
+                        Ajouter un produit
+                    </a>
+                    <a class="btn btn-outline-success" asp-controller="Orders" asp-action="CompleteOrder">
+                        Valider commande
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+
+        <script src="https://paypalobjects.com/api/checkout.js"></script>
+        @*<script src="~/js/paypal.js"></script>*@
+
+        <script>
+
+
+            paypal.Button.render({
+
+                //Congig environment
+                env: 'sandbox',
+                client: {
+                    sandbox: 'AeUe9KlKbvXqkBQEILOXHJ12wz8iEyxohY13sFGMearGgO4lW7dkdeEytQaUCMgToAq6FT06pvBJrQiu'
+                },
+
+                //Customize Button
+                local: 'fr_FR',
+                style: {
+                    size: 'small',
+                    color: 'gold',
+                    shape: 'pill'
+                },
+
+                
+                commit:true,
+
+                //Set up Payment
+                payment: function(data, actions) {
+                    return actions.payment.create({
+                        transactions: [{
+                            amount: {
+                                total: (document.getElementById("total").innerHTML).replace(",", "."),
+                                currency: 'EUR'
+                            }
+                        }]
+                    });
+                    console.log('payment set up');
+                    
+                },
+
+                //Execute Payment
+                onAuthorize: function(data, actions) {
+                    return actions.payment.execute().then(function() {
+                        var url = '@Url.Action("CompleteOrder", "Orders", new {})';
+                        window.location.href = url;
+                    })
+                    console.log("payment executed");
+                }
+
+            }, '#paypal-btn')
+
+            document.getElementById("load").classList.remove("show");
+            document.getElementById("load").classList.add("hide");
+        </script>
+    }

@@ -1,0 +1,52 @@
+﻿@model List<Order>
+
+    @{
+        ViewData["Title"] = "Vos commandes";
+    }
+
+
+        <div class="row">
+            <div class="col-md-8 offset-2 alert alert-success text-center">
+                
+                <p>
+                    <h4>Liste de vos commandes</h4>
+                </p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Numéro de commande</th>
+                            <th>Pizza</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td class="align-middle">@order.IdOrder</td>
+                                <td class="align-middle">
+                                    <ul style="list-style-type:none">
+                                        @foreach (var item in order.OrderDetails)
+                                        {
+                                            <li>
+                                                <div class="alert alert-info">
+                                                    <span class="badge bg-success">@item.Amount</span>[@item.UnitPrice.ToString("c")] - @item.IdProductNavigation.ProductName
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td class="align-middle">
+                                    @order.OrderDetails.Select(p => p.IdProductNavigation.ProductPrice * p.Amount).Sum().ToString("c")
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+
