@@ -110,6 +110,14 @@ namespace pizzeria.Data
 
         public async Task DeleteOrder(int Id)
         {
+            var orderDetails = await this.GetOrderDetailsByOrderId(Id);
+
+            foreach(var orderDetail in orderDetails)
+            {
+                _context.OrderDetails.Remove(orderDetail);
+            }
+            
+
             var result = await _context.Orders.FirstOrDefaultAsync(n => n.IdOrder == Id);
             _context.Orders.Remove(result);
 
@@ -117,9 +125,9 @@ namespace pizzeria.Data
         }
 
 
-        public async Task DeleteOrderDetails(int Id)
+        public async Task DeleteOrderDetails(int IdOrd, int IdProd)
         {
-            var result = await _context.OrderDetails.FirstOrDefaultAsync(n => n.IdOrder == Id);
+            var result = await _context.OrderDetails.FirstOrDefaultAsync(n => n.IdOrder == IdOrd && n.IdProduct == IdProd);
             _context.OrderDetails.Remove(result);
 
             await _context.SaveChangesAsync();

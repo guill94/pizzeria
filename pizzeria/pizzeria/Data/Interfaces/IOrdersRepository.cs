@@ -20,6 +20,6 @@ namespace pizzeria.Data.Interfaces
 
         Task DeleteOrder(int Id);
 
-        Task DeleteOrderDetails(int Id);
+        Task DeleteOrderDetails(int IdOrd, int IdProd);
     }
 }

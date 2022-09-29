@@ -52,8 +52,8 @@
                                                 
 
                                                 <td class="align-middle">
-                 
-                                                    <a class="btn btn-danger text-white" asp-controller="Admin" asp-action="OrderDetailsDelete" asp-route-id="@Model[i].IdOrder"><i class="bi bi-trash">Supprimer</i></a>
+                                                    @Html.ActionLink("Supprimer", "OrderDetailsDelete", "AdminOrders", new { idOrder = @Model[i].IdOrder, idProd = Model[i].IdProduct}, new{@class="btn btn-danger text-white bi bi-trash"})
+                                                   
                                                 </td>
                                             </tr>
                                                

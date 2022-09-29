@@ -1,25 +1,27 @@
 ﻿@model OrderDetail
 
 @{
-    ViewData["Title"] = "Supprimer une pizza";
+    ViewData["Title"] = "Supprimer un produit";
 }
 
 
 <div class="row text">
             <div class="col-md-8 offset-2">
                 <p>
-                    <h1>Supprimer une pizza</h1>
+                    <h1>Supprimer un produit</h1>
                 </p>
                 <div class="row">
                     <div class="col-md-8 offset-2">
-                            
+                            <p>
+                                <h3>
+                                    Voulez vous vraiment supprimer ce produit de la commande ?
+                                </h3>
+                            </p>
                          
                             <div class="form-group">
-                                <form asp-action="OrderDetailsDeleteConfirmed">
-                                    <input type="hidden" asp-for="@Model.IdOrder"/>
-                                    <input type="submit" value="Confirmer" class="btn btn-outline-success float-right" />
-                                    <a class="btn btn-outline-secondary" asp-action="Orders">Annuler</a>
-                                 </form>
+                                @Html.ActionLink("Confirmer", "OrderDetailsDeleteConfirmed", "AdminOrders", new { idOrder = @Model.IdOrder, idProd = Model.IdProduct}, new{@class="btn btn-danger text-white bi bi-trash"})
+                                <a class="btn btn-outline-secondary" asp-action="Orders">Annuler</a>
+                                 
                             </div>
                         
                         

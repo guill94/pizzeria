@@ -43,11 +43,14 @@ namespace pizzeria.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> OrderEdit(int Id, [Bind("Amount", "IdOrder", "IdProduct")] List<OrderDetail> orderDetails)
+        public async Task<IActionResult> OrderEdit(int Id, [Bind("Amount", "UnitPrice", "IdOrder", "IdProduct")] List<OrderDetail> orderDetails)
         {
-            if (!ModelState.IsValid)
+            foreach (var orderDetail in orderDetails)
             {
-                return View("Error");
+                if (orderDetail.Amount == 0 || orderDetail.UnitPrice == 0)
+                {
+                    return View(orderDetails);
+                }
             }
 
             await _repo.UpdateOrder(orderDetails);
@@ -62,26 +65,26 @@ namespace pizzeria.Controllers
             return View(order);
         }
 
-        public async Task<IActionResult> OrderDeleteConfirmed(int Id)
+        public async Task<IActionResult> OrderDeleteConfirmed([Bind("idOrder")] int idOrder)
         {
-            await _repo.DeleteOrder(Id);
+            await _repo.DeleteOrder(idOrder);
 
             return RedirectToAction(nameof(Orders));
         }
 
 
-        /* public async Task<IActionResult> OrderDetailsDelete(int Id)
+         public async Task<IActionResult> OrderDetailsDelete([Bind("idOrder", "idProd")] int idOrder, int idProd)
          {
-             var orderDetails = await _repo.GetOrderDetailsById(Id);
+             var orderDetails = await _repo.GetOrderDetailsById(idOrder, idProd);
 
              return View(orderDetails);
          }
 
-         public async Task<IActionResult> OrderDetailsDeleteConfirmed(int Id)
+         public async Task<IActionResult> OrderDetailsDeleteConfirmed([Bind("idOrder", "idProd")] int idOrder, int idProd)
          {
-             await _repo.DeleteOrderDetails(Id);
+             await _repo.DeleteOrderDetails(idOrder, idProd);
 
              return RedirectToAction(nameof(Orders));
-         }*/
+         }
     }
 }
