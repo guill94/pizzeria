@@ -4,7 +4,7 @@ namespace pizzeria.Data.Interfaces
 {
     public interface IOrdersRepository
     {
-        Task StoreOrder(List<CartItem> items, string userId);
+        Task StoreOrder(List<CartItem> items, string userId, int id = 0);
 
         Task<List<Order>> GetOrdersAdmin(string userId, string userRole);
 

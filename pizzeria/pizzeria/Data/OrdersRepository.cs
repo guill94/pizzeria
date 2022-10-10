@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BingMapsRESTToolkit;
+using Microsoft.EntityFrameworkCore;
 using pizzeria.Data.Interfaces;
 using pizzeria.Models;
 
@@ -21,17 +22,59 @@ namespace pizzeria.Data
             return orders;
         }
 
-        public async Task StoreOrder(List<CartItem> items, string userId)
+        public async Task StoreOrder(List<CartItem> items, string userId, int id = 0)
         {
+            
+
+            decimal total = 0;
+
+            foreach(var item in items)
+            {
+                total += item.Amount * item.IdProductNavigation.ProductPrice;
+            }
             var order = new Order()
             {
                 IdAppUser = userId,
                 OrderDate = System.DateTime.Now,
                 Paid = true,
                 IdAddress = 1,
-                IdStatus = 1
-
+                IdStatus = 1,
+                TotalPrice = total,
             };
+
+            if (id != 0)
+            {
+                order.IdAddress = id;
+
+                var theAddress = await _context.Addresses.FindAsync(id);
+
+                var request = new GeocodeRequest();
+                request.BingMapsKey = "AsneDtLKU9Ee5sVtoH8b4REcN6sBmR2ntPde_J4YKP-pJCLUcbvHUz7hLZHWslWMAsneDtLKU9Ee5sVtoH8b4REcN6sBmR2ntPde_J4YKP-pJCLUcbvHUz7hLZHWslWM";
+
+                request.Query = theAddress.AddressesStreet+", "+ theAddress.AddressesZipCode+" "+theAddress.AdressesCity;
+                        
+                //OR
+                /*request.Address = new SimpleAddress()
+                { 
+                    CountryRegion = theAddress.AddressesCountry,
+                    AddressLine = theAddress.AddressesStreet,
+                    PostalCode = theAddress.AddressesZipCode,
+                   
+                };*/
+
+                var result = await request.Execute();
+                if (result.StatusCode == 200)
+                {
+                    var toolkitLocation = (result?.ResourceSets?.FirstOrDefault())
+                            ?.Resources?.FirstOrDefault()
+                            as BingMapsRESTToolkit.Location;
+                    var latitude = toolkitLocation.Point.Coordinates[0];
+                    var longitude = toolkitLocation.Point.Coordinates[1];
+                    
+                }
+            }
+
+
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
 

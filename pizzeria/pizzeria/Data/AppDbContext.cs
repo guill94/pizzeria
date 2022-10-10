@@ -35,7 +35,7 @@ namespace pizzeria.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("name=DefaultConnection");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-UR7D2KL\\SQL2019;Database=pizzeria;User Id=sa;Password=B!gb@ngth9;");
             }
         }
 

@@ -1,0 +1,26 @@
+﻿@model Address
+
+@{
+    ViewData["Title"] = "Livraison";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form asp-action="OrderOptions">
+            <div class="form-group">
+                <label>Adresse :</label>
+                <select asp-for="IdAddress" class="form-control" asp-items="ViewBag.addresses"></select>
+                <span asp-validation-for="IdAddress" class="text-danger"></span>
+            </div>
+
+            <h3 class="mb-1 mt-3">Besoin d'une nouvelle adresse ?</h3>
+
+            <a class="btn btn-outline-primary me-3" asp-controller="Addresses" asp-action="Create" >Ajouter une adresse </a>
+        
+            <div>
+                <input type="submit" value="Confirmer" class="btn btn-outline-success float-right" />
+                <a class="btn btn-danger text-white" asp-action="ShoppingCart" asp-route-id="IdAddress"><i class="bi bi-trash"></i>Annuler </a>
+            </div>
+        </form>
+    </div>
+</div>

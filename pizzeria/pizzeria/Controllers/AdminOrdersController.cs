@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using pizzeria.Data;
 using pizzeria.Data.Interfaces;
 using pizzeria.Models;
@@ -21,7 +23,6 @@ namespace pizzeria.Controllers
         }
 
 
-
         //ORDERS
         public async Task<IActionResult> Orders()
         {
@@ -31,6 +32,14 @@ namespace pizzeria.Controllers
             var orders = await _repo.GetOrdersAdmin(userId, userRole);
 
             return View(orders);
+        }
+
+        public async Task<IActionResult> OrderValidate(int id)
+        {
+            Order order = await _repo.GetOrderById(id);
+            ViewData["rules"] = new SelectList(await _context.DeliveryPriceRules.ToListAsync(), "IdDeliveryPriceRules", "RulesMaxDistance");
+
+            return View(order);
         }
 
 

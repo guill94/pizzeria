@@ -25,7 +25,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
-builder.Services.AddScoped<IIngredientsRepository, IngredientsRepository>();
+builder.Services.AddScoped<IngredientsRepository>();
 builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
 

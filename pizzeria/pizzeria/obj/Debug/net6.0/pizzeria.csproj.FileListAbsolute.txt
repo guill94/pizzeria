@@ -805,3 +805,4 @@ C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\refint
 C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.pdb
 C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\pizzeria.genruntimeconfig.cache
 C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\obj\Debug\net6.0\ref\pizzeria.dll
+C:\Users\elbe_\Desktop\Projet\pizzeria\pizzeria\pizzeria\bin\Debug\net6.0\BingMapsRESTToolkit.dll

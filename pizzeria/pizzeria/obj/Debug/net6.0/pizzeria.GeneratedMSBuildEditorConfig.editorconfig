@@ -27,6 +27,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckNvbXBsZXRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Addresses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Addresses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Addresses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Addresses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Addresses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/AdminOrders/OrderDelete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5PcmRlcnNcT3JkZXJEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/AdminOrders/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5PcmRlcnNcT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/AdminOrders/OrderValidate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5PcmRlcnNcT3JkZXJWYWxpZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Categories/Create.cshtml]
@@ -89,6 +113,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Orders/OrderCompleted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXE9yZGVyQ29tcGxldGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Orders/OrderOptions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXE9yZGVyT3B0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/elbe_/Desktop/Projet/pizzeria/pizzeria/pizzeria/Views/Orders/ShoppingCart.cshtml]

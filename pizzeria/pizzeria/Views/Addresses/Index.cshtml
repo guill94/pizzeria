@@ -1,0 +1,54 @@
+﻿@model IEnumerable<pizzeria.Models.Address>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressesStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdressesCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressesZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressesCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressesStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdressesCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressesZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressesCountry)
+            </td>
+            <td>
+                <a class="btn btn-outline-primary me-3" asp-action="Edit" asp-route-id="@item.IdAddress"><i class="bi bi-pencil-square"></i>Modifier </a>
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.IdAddress"><i class="bi bi-trash"></i>Supprimer </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@await Html.PartialAsync("_CreateButton", "Addresses")

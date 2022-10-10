@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using pizzeria.Data;
 using pizzeria.Data.Cart;
 using pizzeria.Data.Interfaces;
 using pizzeria.Data.ViewModels;
+using pizzeria.Models;
 using System.Security.Claims;
 
 namespace pizzeria.Controllers
@@ -11,11 +15,13 @@ namespace pizzeria.Controllers
         private readonly IProductsRepository _repoProd;
         private readonly IOrdersRepository _repoOrd;
         private readonly ShoppingCart _cart;
+        private readonly AppDbContext _context;
 
-        public OrdersController(IProductsRepository repoProd, IOrdersRepository repoOrd, ShoppingCart cart)
+        public OrdersController(IProductsRepository repoProd, IOrdersRepository repoOrd, AppDbContext context, ShoppingCart cart)
         {
             _repoOrd = repoOrd;
             _repoProd = repoProd;
+            _context = context;
             _cart = cart;
         }
 
@@ -76,6 +82,24 @@ namespace pizzeria.Controllers
             //string emailAddress = User.FindFirstValue(ClaimTypes.Email);
 
             await _repoOrd.StoreOrder(items, userId);
+            await _cart.ClearCart();
+
+            return View("OrderCompleted");
+        }
+
+        public async Task<IActionResult> OrderOptions()
+        {
+            ViewData["addresses"] = new SelectList(await _context.Addresses.ToListAsync(), "IdAddress", "AddressesStreet");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> OrderOptions([Bind("IdAddress")] Address address)
+        {
+            var items = _cart.GetCartItems();
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            await _repoOrd.StoreOrder(items, userId, address.IdAddress);
             await _cart.ClearCart();
 
             return View("OrderCompleted");

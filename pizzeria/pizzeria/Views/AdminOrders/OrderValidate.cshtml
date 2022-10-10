@@ -1,0 +1,37 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Valider une commande";
+}
+
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Valider une commande</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+
+                <div class="form-group">
+                    <label class="control-label">Numéro de commande :</label>
+                    <input asp-for="@Model.IdOrder" class="form-control" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label>Distance :</label>
+                    <select asp-for="IdDeliveryPriceNavigation.IdDeliveryPriceRules" class="form-control" asp-items="ViewBag.rules"></select>
+                    <span asp-validation-for="IdDeliveryPriceNavigation.IdDeliveryPriceRules" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.ActionLink("Confirmer", "OrderDeleteConfirmed", "AdminOrders", new { idOrder = @Model.IdOrder}, new{@class="btn btn-danger text-white bi bi-trash"})
+                    <a class="btn btn-outline-secondary" asp-action="Orders">Annuler</a>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,13 +4,14 @@ using pizzeria.Models;
 
 namespace pizzeria.Data
 {
-    public class IngredientsRepository : IIngredientsRepository
+    public class IngredientsRepository// : IIngredientsRepository
     {
 
-        private readonly AppDbContext _context;
-        public IngredientsRepository(AppDbContext context)
+        //private readonly AppDbContext _context;
+        AppDbContext _context;
+        public IngredientsRepository(/*AppDbContext context*/)
         {
-            _context = context; 
+            _context = new AppDbContext(); 
         }
 
 

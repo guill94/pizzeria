@@ -1,0 +1,46 @@
+﻿@model pizzeria.Models.Address
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Address</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAddress" />
+            <div class="form-group">
+                <label asp-for="AddressesStreet" class="control-label"></label>
+                <input asp-for="AddressesStreet" class="form-control" />
+                <span asp-validation-for="AddressesStreet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdressesCity" class="control-label"></label>
+                <input asp-for="AdressesCity" class="form-control" />
+                <span asp-validation-for="AdressesCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressesZipCode" class="control-label"></label>
+                <input asp-for="AddressesZipCode" class="form-control" />
+                <span asp-validation-for="AddressesZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressesCountry" class="control-label"></label>
+                <input asp-for="AddressesCountry" class="form-control" />
+                <span asp-validation-for="AddressesCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

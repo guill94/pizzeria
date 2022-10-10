@@ -58,17 +58,25 @@
 
             </table>
 
+            <h2 class="mt-4 mb-4">Livraisons :</h2>
+            <input type="checkbox" name="check" value="Avec livraison"/>
+            <label>Avec livraison</label>
+            
+
             <div class="text-right">
                 <div class="btn-group">
-                    <div id="load" class="show">Chargement...</div>
-                    <div id="paypal-btn"></div>
+                    @*<div id="load" class="show">Chargement...</div>
+                    <div id="paypal-btn"></div>*@
                     <span style="padding:5px"></span>
 
                     <a class="btn btn-outline-success" asp-controller="Products" asp-action="Index">
                         Ajouter un produit
                     </a>
-                    <a class="btn btn-outline-success" asp-controller="Orders" asp-action="CompleteOrder">
-                        Valider commande
+                    <a class="btn btn-outline-success ms-1" id="withoutDel" asp-controller="Orders" asp-action="CompleteOrder">
+                        Commander sans livraison
+                    </a>
+                    <a class="btn btn-outline-success ms-1" id="withDel" asp-controller="Orders" asp-action="OrderOptions" disabled>
+                        Commander avec livraison
                     </a>
                 </div>
             </div>
@@ -82,6 +90,15 @@
 
         <script>
 
+        $('input[type="checkbox"]').change(function () {
+            if ($('input[type="checkbox"]:checked').length > 0) {
+                $('#withDel').prop('disabled', false);
+                $('#withoutDel').prop('disabled', true);
+            } else {
+                $('#withDel').prop('disabled', true);
+                $('#withoutDel').prop('disabled', false);
+            }
+        });
 
             paypal.Button.render({
 

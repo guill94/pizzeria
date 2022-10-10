@@ -14,12 +14,16 @@ namespace pizzeria.Controllers
     public class IngredientsController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly IIngredientsRepository _repo;
+        //private readonly IIngredientsRepository _repo;
 
-        public IngredientsController(AppDbContext context, IIngredientsRepository repo)
+        private readonly IngredientsRepository _repo;
+
+        public IngredientsController(AppDbContext context, IngredientsRepository repo)
         {
             _context = context;
             _repo = repo;
+
+
         }
 
         // GET: Ingredients
